@@ -1,6 +1,6 @@
 **Simple feedback portal**
 
-##Feedback Portal Backend
+##Feedback Portal Backend 📝
 
 The Feedback Portal Backend is the server-side application for collecting and displaying customer feedback. 
 It is built using PHP and designed to work seamlessly with the Feedback Portal Frontend. 
@@ -27,22 +27,29 @@ Composer (optional, for additional dependencies)
 ##Setup Instructions:-
 #1. Clone the Repository
 Clone the repository to your local machine:
+```bash
 git clone https://github.com/your-username/feedback-portal-backend.git
 cd feedback-portal-backend
+```
+
 
 
 #2. Configure the Database:-
 Import the SQL schema:
 Locate the db.sql file containing the database schema.
 Import it into your MySQL server:
+```bash
 mysql -u your_user -p your_database < db.sql
+```
 Update the database connection in public/forms/db.php
 
 
 
 #3. Run Locally:-
 Start a PHP development server:
+```bash
 php -S localhost:8080 -t public
+```
 Access the backend via http://localhost:8080.
 
 
