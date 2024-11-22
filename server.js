@@ -1,58 +1,31 @@
-//const { createProxyMiddleware } = require('http-proxy-middleware');
 const express = require('express');
 const bodyParser = require('body-parser');
 const path = require('path');
-const pool = require('./db'); // Assuming your DB connection is in db.js
+const pool = require('./db');
 const app = express();
 const PORT = 3000;
 
-// Middleware to parse JSON request bodies
-// Serve static files from the "public" directory
-// Serve static files (HTML, JS, CSS)
+
 app.use(express.static(path.join(__dirname, 'public'), {
-    extensions: ['html'], // Automatically resolve .html files
+    extensions: ['html'], 
   }));
-  /*
-app.use(express.static(path.join(__dirname, 'public')));*/
-// Add body parser middleware
+ 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-// Route to serve the main page
+
 
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Proxy PHP requests to the PHP server running on port 8080
+
 app.use((req, res, next) => {
     res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
     next();
   });
-  /*
-app.use((req, res, next) => {
-    console.log(`Incoming Request: ${req.method} ${req.url}`);
-    next();
-  });
+  
 
-app.use(
-    '/forms',
-    createProxyMiddleware({
-      target: 'http://localhost:8080', // PHP server
-      changeOrigin: true,
-      logLevel: 'debug', // Debug logging for the middleware
-      pathRewrite: {}, // No path rewriting
-      onProxyReq: (proxyReq, req) => {
-        console.log(`Proxying: ${req.method} ${req.url}`);
-      },
-      onProxyRes: (proxyRes, req) => {
-        console.log(`Proxied response status: ${proxyRes.statusCode}`);
-      },
-      logLevel: 'debug', // Enable detailed logs
-    })
-  );
-  */
-// Feedback route
 app.post('/forms/submit-feedback.php', async (req, res) => {
     console.log('Request body:', req.body);
 
@@ -73,8 +46,7 @@ app.post('/forms/submit-feedback.php', async (req, res) => {
         res.status(500).json({ message: 'Database error occurred while submitting feedback.' });
     }
 });
-//app.use(express.static(path.join(__dirname, 'public_html')));
-// Endpoint to retrieve all feedback (admin view)
+
 
 app.get('/forms/feedbacks.php', async (req, res) => {
     try {
@@ -88,7 +60,7 @@ app.get('/forms/feedbacks.php', async (req, res) => {
 app.use((req, res) => {
     res.status(404).send('Resource not found');
   });
-// Start the server
+
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
