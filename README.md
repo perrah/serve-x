@@ -44,9 +44,14 @@ mysql -u your_user -p your_database < db.sql
 ```
 Update the database connection in public/forms/db.php
 
+### 3. Run Node:-
+```bash
+node server.js
+```
+log: Server is running on http://localhost:3000
 
 
-### 3. Run Locally:-
+### 4. Run Locally:-
 Start a PHP development server:
 ```bash
 php -S localhost:8080 -t public
