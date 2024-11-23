@@ -3,7 +3,7 @@
 ## Feedback Portal Backend 📝
 
 The Feedback Portal Backend is the server-side application for collecting and displaying customer feedback. 
-It is built using ## NODEJS, ## PHP and designed to work seamlessly with the Feedback Portal Frontend. 
+It is built using **NODEJS**, **PHP** and designed to work seamlessly with the Feedback Portal Frontend. 
 This backend handles feedback submission and retrieves recent feedback stored in a MySQL database.
 
 ## Live Demo:-
