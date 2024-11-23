@@ -8,7 +8,7 @@ This backend handles feedback submission and retrieves recent feedback stored in
 
 ## Live Demo:-
 
-You can test the frontend of the portal here:https://feedback-portal-frontend.onrender.com/
+You can test the frontend of the portal here:https://servex.com.ng/
 
 ## Features:-
 1) Submit Feedback: Accepts customer feedback with a name, star rating, and comments.
